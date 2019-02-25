@@ -14,6 +14,9 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        String username = (String) session.getAttribute("username");
+        req.setAttribute("thankyou","Thank You "+username+". You are successfully signed out.");
+        System.out.println("Message: "+ username);
         session.invalidate();
 
         resp.sendRedirect("/");

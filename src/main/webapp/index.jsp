@@ -24,5 +24,13 @@
     <input type="submit" value="Login">
 </form>
 Instance number: <%= System.getProperty("instanceNumber") %>
+<%
+String message = "";
+if(request.getParameter("thankyou")!=null){
+    message = request.getParameter("thankyou");
+}
+%>
+
+Message: <%= message %>
 </body>
 </html>
